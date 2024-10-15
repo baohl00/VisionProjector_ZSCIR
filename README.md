@@ -1,4 +1,4 @@
-# MagicLens
+# Vision Projector for ZSCIR
 
 This repo contains implementation of MagicLens. The code here uses Jax and Flax.
 Note that the current implementation does not yet support training.
@@ -68,9 +68,11 @@ In `CIRCO`
 |----------|----------|----------|----------|----------|
 | Prior SOTA | 26.8 | 27.6 | 30.0 | 31.0 |
 | Base (original) | 23.1 | 23.8 | 25.8 | 26.7 |
-| Base (converted) | 22.3 | 23.2 | 25.0 | 26.0 |
+| Base (reproduced) | 25.5 | 26.5 | 28.5 | 29.4 |
+| Base + _VisionProjector_ | 25.7 | 26.7 | 28.6 | 29.6 |
 | Large (original) | 29.6 | 30.8 | 33.4 | 34.4 |
-| Large (converted) | 29.5 | 30.8 | 33.2 | 34.3 |
+| Large (reproduced) | 30.1 | 31.4 | 33.8 | 34.9 |
+| Large + _VisionProjector | 35.8 | 36.8 | 39.3 | 40.4 |
 
 ## Citing this work
 
@@ -86,23 +88,6 @@ Add citation details here, usually a pastable BibTeX snippet:
 }
 ```
 
-## License and disclaimer
+## Acknowledgement 
 
-Copyright 2024 DeepMind Technologies Limited
-
-All software is licensed under the Apache License, Version 2.0 (Apache 2.0);
-you may not use this file except in compliance with the Apache 2.0 license.
-You may obtain a copy of the Apache 2.0 license at:
-https://www.apache.org/licenses/LICENSE-2.0
-
-All other materials are licensed under the Creative Commons Attribution 4.0
-International License (CC-BY). You may obtain a copy of the CC-BY license at:
-https://creativecommons.org/licenses/by/4.0/legalcode
-
-Unless required by applicable law or agreed to in writing, all software and
-materials distributed here under the Apache 2.0 or CC-BY licenses are
-distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
-either express or implied. See the licenses for the specific language governing
-permissions and limitations under those licenses.
-
-This is not an official Google product.
+We extend our gratitude to the open-source efforts of [MagicLens](https://github.com/google-deepmind/magiclens). 
