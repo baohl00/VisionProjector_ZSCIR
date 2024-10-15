@@ -2,7 +2,7 @@
 
 This repo contains implementation of MagicLens. The code here uses Jax and Flax.
 Note that the current implementation does not yet support training.
-Refer to the [website](https://open-vision-language.github.io/MagicLens/) for dataset examples.
+For further information about MagicLens, please visit the [website](https://open-vision-language.github.io/MagicLens/).
 
 ## Abstract
 
@@ -41,24 +41,17 @@ pip install -r scenic/projects/baselines/clip/requirements.txt
 # pip install --upgrade "jax[cuda11_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 ```
 
-### Model Download
-Download model via:
-```
-cd .. # in main folder `magiclens`
-# you may need to use `gcloud auth login` for access, any gmail account should work.
-gsutil cp -R gs://gresearch/magiclens/models ./
-```
-
-### Data Preparation
-Please follow each dataset folder in `./data`. Currently we have successfully tested FIQ and CIRCO:
+### Model Download & Data Preparation
+Please follow the instruction in [here](https://github.com/google-deepmind/magiclens/blob/main/data/README.md).
 
 ## Inference
+We prepare two different files for inference stage. You can choose base or large version of MagicLens, if you run this:
 ```
-python inference.py \
---model_size large \
---model_path ./models/magic_lens_clip_large.pkl \
---dataset circo
-
+bash scripts/inference.sh
+```
+or run both two versions:   
+```
+bash scripts/fast.sh
 ```
 
 Due to the weight conversion, the performance may be slightly different:
@@ -72,7 +65,7 @@ In `CIRCO`
 | Base + _VisionProjector_ | 25.7 | 26.7 | 28.6 | 29.6 |
 | Large (original) | 29.6 | 30.8 | 33.4 | 34.4 |
 | Large (reproduced) | 30.1 | 31.4 | 33.8 | 34.9 |
-| Large + _VisionProjector | 35.8 | 36.8 | 39.3 | 40.4 |
+| Large + _VisionProjector_ | **35.8** | **36.8** | **39.3** | **40.4** |
 
 ## Citing this work
 
