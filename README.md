@@ -6,6 +6,9 @@ For further information about MagicLens, please visit the [website](https://open
 
 ## Abstract
 
+Composed Image Retrieval (CIR) is a specific task related to visual information retrieval using a query which is comprised of both image and text data. Following this idea, Zero-Shot CIR aims to tackle CIR task without pre-training the model on the training labeled triplets consisting of the query image, the textual description, and the target image. The architecture of state-of-the-art (SOTA) methods compose of two parts: the encoding stage extracting key features and the core model based on Transformer or Contrastive Learning in order to match the key features. This popular common gives us a question: _Is there any way to leverage the model directly instead of improving data quantity or building a more complex architecture?_ Therefore, in this paper, we demonstrate **Vision Projector** (VP) - an efficient and simple, easy-to-plug projector that improve remarkably the released model - MagicLens. Without pre-training them one more time, VP is directly attached into MagicLens and increase baseline performance throughout all experimental datasets, and particularly, in the CIRCO dataset, increase about 18\% the metric scores despite of not using their best model and achieve the SOTA scores.
+
+<blockquote>
 We introduce MagicLens, a series of self-supervised image retrieval models that support
 open-ended instructions. The core thesis of MagicLens is that text
 instructions can enable retrieving images with
@@ -21,6 +24,7 @@ human analyses on a 1.4M-image unseen corpus
 further demonstrate the diversity of search intents
 supported by MagicLens.
 ![Intro image](https://open-vision-language.github.io/MagicLens/static/images/magiclens_overview.png)
+</blockquote>
 
 ## Setup
 ```
@@ -55,6 +59,31 @@ bash scripts/fast.sh
 ```
 
 Due to the weight conversion, the performance may be slightly different:
+
+In `FashionIQ`
+
+| Model | R@10 | R@50 | 
+|----------|----------|----------|
+| SOTA | **46.2** | **67.3** |
+| Base (original) | 26.3 | 47.4 |
+| Base (reproduced) | 26.4 | 48.6 |
+| Base + _VisionProjector_ | 26.6 | 48.6 |
+| Large (original) | 30.7 | 52.5 |
+| Large (reproduced) | 30.8 | 52.1 | 
+| Large + _VisionProjector_ | _32.1_ | _53.1_ |
+
+In `CIRR`
+
+| Model | R@1 | R@5 | R@50 |
+|----------|----------|----------|----------|
+| SOTA | 37.9 | 68.9 | 93.9 |
+| Base (original) | 27.0 | 58.0 | 91.1 |
+| Base (reproduced) | 31.3 | 61.5 | 92.1 |
+| Base + _VisionProjector_ | 31.5 | 61.8 | 92.0 |
+| Large (original) | 30.1 | 61.7 | 92.6 |
+| Large (reproduced) | 33.3 | 63.8 | 93.1 |
+| Large + _VisionProjector_ | _35.7_ | _65.1_ | _92.8_ |
+_(*): The inference code for CIRR dataset is not published._
 
 In `CIRCO`
 | Model | map@5 | map@10 | map@25 | map@50 |
