@@ -1,4 +1,4 @@
-# Vision Projector for ZSCIR
+# Vision Projector for Zero Shot Composed Image Retrieval
 
 This repo contains our Vision Projector and the implementation of MagicLens. The code here uses Jax and Flax.
 Note that the current implementation does not yet support training.
