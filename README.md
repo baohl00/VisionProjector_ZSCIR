@@ -1,6 +1,6 @@
 # Vision Projector for ZSCIR
 
-This repo contains implementation of MagicLens. The code here uses Jax and Flax.
+This repo contains our Vision Projector and the implementation of MagicLens. The code here uses Jax and Flax.
 Note that the current implementation does not yet support training.
 For further information about MagicLens, please visit the [website](https://open-vision-language.github.io/MagicLens/).
 
