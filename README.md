@@ -81,8 +81,8 @@ In `CIRR`
 | Base (reproduced) | 31.3 | 61.5 | 92.1 |
 | Base + _VisionProjector_ | 31.5 | 61.8 | 92.0 |
 | Large (original) | 30.1 | 61.7 | 92.6 |
-| Large (reproduced) | 33.3 | 63.8 | 93.1 |
-| Large + _VisionProjector_ | _35.7_ | _65.1_ | _92.8_ |  
+| Large (reproduced) | 33.3 | 63.8 | _93.1_ |
+| Large + _VisionProjector_ | _35.7_ | _65.1_ | 92.8 |  
 
 _(*): The inference code for CIRR dataset is not published._
 
@@ -94,8 +94,8 @@ In `CIRCO`
 | Base (reproduced) | 25.5 | 26.5 | 28.5 | 29.4 |
 | Base + _VisionProjector_ | 25.7 | 26.7 | 28.6 | 29.6 |
 | Large (original) | 29.6 | 30.8 | 33.4 | 34.4 |
-| Large (reproduced) | 30.1 | 31.4 | 33.8 | 34.9 |
-| Large + _VisionProjector_ | **35.8** | **36.8** | **39.3** | **40.4** |
+| Large (reproduced) | _30.1_ | _31.4_ | _33.8_ | _34.9_ |
+| Large + _VisionProjector_ (SOTA) | **35.8** | **36.8** | **39.3** | **40.4** |
 
 ## Citing this work
 
