@@ -76,13 +76,14 @@ In `CIRR`
 
 | Model | R@1 | R@5 | R@50 |
 |----------|----------|----------|----------|
-| SOTA | 37.9 | 68.9 | 93.9 |
+| SOTA |  **37.9** | **68.9** | **93.9** |
 | Base (original) | 27.0 | 58.0 | 91.1 |
 | Base (reproduced) | 31.3 | 61.5 | 92.1 |
 | Base + _VisionProjector_ | 31.5 | 61.8 | 92.0 |
 | Large (original) | 30.1 | 61.7 | 92.6 |
 | Large (reproduced) | 33.3 | 63.8 | 93.1 |
-| Large + _VisionProjector_ | _35.7_ | _65.1_ | _92.8_ |
+| Large + _VisionProjector_ | _35.7_ | _65.1_ | _92.8_ |  
+
 _(*): The inference code for CIRR dataset is not published._
 
 In `CIRCO`
