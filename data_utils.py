@@ -217,15 +217,8 @@ def build_fiq_dataset(dataset_name: str, tokenizer: Any) -> Dataset:
             img = PIL.Image.open(f).convert('RGB')
             image = preprocess(img).unsqueeze(0).to(device) 
         with torch.no_grad():
-            #qimg_caption = model.generate(image, sample=False, num_beams = 3, top_p = 0.9, max_length=20, min_length= 5) 
-            #qimg_caption = qimg_caption[0].replace('t - shirt', 'tee')
-            #img_exp = dict()
-            #subject, attribute = split_caption(qcaption, nlp)  
-            #print(img_exp)
             qcaption = preprocess_cap(qcaption) 
             qtext_new = qtext
-            #qtext_new = qtext + ' DIFFERENT FROM ' + qcaption
-            #qtext_new = "a phot of " + qtext + ' not like ' + qimg_caption
             qtokens = tokenizer(qtext_new)
             return QueryExample(qid=qid, qtokens=qtokens, qimage=ima, target_iid=query['target'], retrieved_iids=[], retrieved_scores=[])
 
@@ -283,21 +276,7 @@ def build_circo_dataset(dataset_name: str, tokenizer: Any) -> Dataset:
         with open(qimage_path, 'rb') as f:
             img = PIL.Image.open(f).convert('RGB')
             image = preprocess(img).unsqueeze(0).to(device) 
-        #with torch.no_grad():
-        #    qimg_caption = model.generate(image, sample=False, num_beams = 3, top_p = 0.9, max_length=20, min_length= 5) 
-        #    qimg_caption = qimg_caption[0]
-        #    img_exp = dict()
-        #    subject, attribute = split_caption(qimg_caption, nlp) 
-        #    if subject != attribute:
-        #        img_exp["img_id"] = qid 
-        #        img_exp["subject"] = subject
-        #        img_exp["attribute"] = attribute
-        #    else: 
-        #        img_exp["subject"] = subject
-            #print(img_exp)
-            #qtext_new = 'A photo ' + qtext + ' and different from ' + qimg_caption
-        #qtext = f"{query['gemma_generated_query']} AND {query['relative_caption']}" # but {query['gemma_generated_query']}"
-        #qtext = f"{query['relative_caption']}" #  SAME {query['shared_concept']}"
+
         qtext = f"{query['shared_concept']} but {query['relative_caption']}"
         #qtext = f"{query['relative_caption']} but {query['shared_concept']}"
         #qtext = f"TOTALLY {query['relative_caption']} SAME {qimg_caption}"
@@ -359,20 +338,7 @@ def build_cirr_dataset(dataset_name: str, tokenizer: Any) -> Dataset:
         with open(qimage_path, 'rb') as f:
             img = PIL.Image.open(f).convert('RGB')
             image = preprocess(img).unsqueeze(0).to(device) 
-        #with torch.no_grad():
-        #    qimg_caption = model.generate(image, sample=False, num_beams = 3, top_p = 0.9, max_length=15, min_length= 5) 
-        #    qimg_caption = qimg_caption[0]
-        #    img_exp = dict()
-        #    subject, attribute = split_caption(qimg_caption, nlp) 
-        #    if subject != attribute:
-        #        img_exp["img_id"] = qid 
-        #        img_exp["subject"] = subject
-        #        img_exp["attribute"] = attribute
-        #    else: 
-        #        img_exp["subject"] = subject
-            #print(img_exp)
-            #qtext_new = 'A photo ' + qtext + ' and different from ' + qimg_caption
-        qtext = query['caption']
+
         #qtext = f"{query['caption']} WITH {query['gemma_generated_query']}" # DIFFERENT FROM {qimg_caption}"
         ima = process_img(qimage_path, 224)
         qtokens = np.array(tokenizer(qtext))
